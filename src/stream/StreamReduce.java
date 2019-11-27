@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import data.Student;
+import data.StudentDb;
+
 public class StreamReduce {
 	public static void main(String[] args) {
 		// Use Optionals with an Identity
@@ -29,6 +32,14 @@ public class StreamReduce {
 		if (optionalEmpty.isPresent()) {
 			System.out.println("Result: " + optionalEmpty.get());
 		}
+		
+		// Use Optional to get the Student with the highest GPA
+		if (getStudentHighestGpa().isPresent()) {
+			System.out.println("Student with the highest GPA is: " + getStudentHighestGpa().get());
+		}
+		
+		// Get the Average students GPA
+		System.out.println("Average of Students GPA is: " + getSumOfStudentsGpa());
 	}
 	
 	// Multiply all values of the List using Stream and reduce operation
@@ -43,4 +54,27 @@ public class StreamReduce {
 		return list.stream()
 				.reduce((a, b) -> a * b);
 	}
+	
+	// Get the Student with the highest GPA using Optional
+	public static Optional<String> getStudentHighestGpa() {
+		return StudentDb.getAllStudents().stream()
+				.reduce((student1, student2) -> (student1.getGpa() > student2.getGpa()) ? student1 : student2)
+				.map(Student::getName);
+	}
+	
+	// Get the Sum of female Students GPA
+	public static double getSumOfStudentsGpa() {
+		double sumOfGpa = StudentDb.getAllStudents().stream()
+				.filter(Student -> Student.getGender().equals("female"))
+				.map(Student::getGpa)
+				.reduce((double) 1, (firstGpa, secondGpa) -> firstGpa + secondGpa);
+		
+		return sumOfGpa;
+	}
 }
+
+
+
+
+
+
