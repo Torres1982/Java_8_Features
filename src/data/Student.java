@@ -9,6 +9,7 @@ public class Student {
     private double gpa;
     private String gender;
     private List<String> activities = new ArrayList<>();
+    private int examRepeat;
 
     public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities) {
         this.name = name;
@@ -16,6 +17,15 @@ public class Student {
         this.gpa = gpa;
         this.gender = gender;
         this.activities = activities;
+    }
+    
+    public Student(String name, int gradeLevel, double gpa, String gender, List<String> activities, int examRepeat) {
+        this.name = name;
+        this.gradeLevel = gradeLevel;
+        this.gpa = gpa;
+        this.gender = gender;
+        this.activities = activities;
+        this.examRepeat = examRepeat;
     }
 
     public String getGender() { return gender; }
@@ -28,14 +38,16 @@ public class Student {
     public void setGpa(double gpa) { this.gpa = gpa; }
     public List<String> getActivities() { return activities; }
     public void setActivities(List<String> activities) { this.activities = activities; }
+    public int getExamRepeat() { return examRepeat; }
+    public void setExamRepeat(int examRepeat) { this.examRepeat = examRepeat; }
 
     @Override
     public String toString() {
-        return "\nStudent:" +
-                "\nName = " + name +
-                "\nGrade Level = " + gradeLevel +
-                "\nGPA = " + gpa +
-                "\nGender = " + gender +
-                "\nActivities = " + activities;
+        return "\nNAME = " + name +
+                " - GRADE = " + gradeLevel +
+                " - GPA = " + gpa +
+                " - GENDER = " + gender +
+                " - ACTIVITIES = " + activities +
+                " - REPEATS = " + examRepeat;
     }
 }

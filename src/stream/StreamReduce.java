@@ -38,8 +38,8 @@ public class StreamReduce {
 			System.out.println("Student with the highest GPA is: " + getStudentHighestGpa().get());
 		}
 		
-		// Get the Average students GPA
-		System.out.println("Average of Students GPA is: " + getSumOfStudentsGpa());
+		// Get the Sum of female students' Exam Repeats
+		System.out.println("The Sum of female students' Exam Repeats is: " + getSumOfStudentsExamRepeats());
 	}
 	
 	// Multiply all values of the List using Stream and reduce operation
@@ -62,14 +62,14 @@ public class StreamReduce {
 				.map(Student::getName);
 	}
 	
-	// Get the Sum of female Students GPA
-	public static double getSumOfStudentsGpa() {
-		double sumOfGpa = StudentDb.getAllStudents().stream()
-				.filter(Student -> Student.getGender().equals("female"))
-				.map(Student::getGpa)
-				.reduce((double) 1, (firstGpa, secondGpa) -> firstGpa + secondGpa);
+	// Get the Sum of female Exam Repeats
+	public static int getSumOfStudentsExamRepeats() {
+		int sumOfRepeats = StudentDb.getAllStudents().stream()
+				.filter(student -> student.getGender().equals("female"))
+				.map(Student::getExamRepeat)
+				.reduce(0, (firstGpa, secondGpa) -> firstGpa + secondGpa);
 		
-		return sumOfGpa;
+		return sumOfRepeats;
 	}
 }
 

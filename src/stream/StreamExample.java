@@ -19,14 +19,14 @@ public class StreamExample {
 		Map<String, List<String>> studentActivitiesMap = StudentDb.getAllStudents().stream()
 				// Peak method used to debug the Stream
 				.peek(student -> {
-					System.out.println("\nFirst Filter:" + student);
+					System.out.println("First Filter:" + student);
 				})
 				.filter(gradeLevelPredicate)
 				.filter(gpaPredicate)
 				.filter(activityPredicate)
 				.filter(namePredicate)
 				.peek(student -> {
-					System.out.println("\nName Predicate Filter:" + student);
+					System.out.println("Name Predicate Filter:" + student);
 				})
 				.filter(genderFemalePredicate)
 				.collect(Collectors.toMap(Student::getName, Student::getActivities));
