@@ -19,7 +19,7 @@ public class StreamOfGenerateIterate {
 	
 	// Example of Stream Iterator
 	public static void getStreamIterateValues() {
-		Stream.iterate(1, Number -> Number * 3)
+		Stream.iterate(1, number -> number * 3)
 			.limit(6)
 			.forEach(System.out::println);
 	}

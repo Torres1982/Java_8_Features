@@ -11,7 +11,7 @@ public class StudentDb {
         Student student4 = new Student("Jerry", 3, 3.9, "male", Arrays.asList("swimming", "gymnastics", "soccer"), 1);
         Student student5 = new Student("Sandra", 4, 2.7, "female", Arrays.asList("tennis", "dancing", "football"), 0);
         Student student6 = new Student("Jim", 4, 3.9, "male", Arrays.asList("swimming", "basketball", "baseball", "football"), 5);
-        Student student7 = new Student("Joana", 3, 3.4,"female", Arrays.asList("swimming", "jogging", "dancing"), 2);
+        Student student7 = new Student("Joana", 4, 3.4,"female", Arrays.asList("swimming", "jogging", "dancing"), 2);
 
         List<Student> students = Arrays.asList(student1, student2, student3, student4, student5, student6, student7);
         return students;

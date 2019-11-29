@@ -1,4 +1,4 @@
-package lambda;
+package functionalinterfaces;
 
 import java.lang.Runnable;
 

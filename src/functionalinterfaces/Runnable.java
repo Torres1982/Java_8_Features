@@ -1,4 +1,4 @@
-package lambda;
+package functionalinterfaces;
 
 @FunctionalInterface
 public interface Runnable {
