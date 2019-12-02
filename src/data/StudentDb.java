@@ -2,8 +2,14 @@ package data;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class StudentDb {
+	public static Supplier<Student> getStudentSupplier = () -> {
+		Student student = new Student("Jerry", 5, 3.4, "male", Arrays.asList("rugby", "table tennis"));
+		return student;
+	};
+	
     public static List<Student> getAllStudents() {
         Student student1 = new Student("Mark", 2, 3.6, "male", Arrays.asList("tennis", "basketball", "volleyball"), 3);
         Student student2 = new Student("Emma", 2, 2.4,"female", Arrays.asList("swimming", "cycling", "soccer"), 2);
